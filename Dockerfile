@@ -43,6 +43,7 @@ RUN chmod g=u /etc/passwd
 RUN mkdir -p /mnt/extra-addons \
         && chown -R odoo /mnt/extra-addons
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
+ADD https://github.com/codup/odoo-eam/archive/10.0.zip /mnt/extra-addons/codup.zip
 COPY ./asset /mnt/extra-addons/
 
 
