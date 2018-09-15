@@ -48,7 +48,7 @@ RUN unzip /opt/odoo/codup.zip
 RUN chown odoo /opt/odoo/
 
 ADD https://github.com/codup/odoo-eam/archive/10.0.zip /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
-RUN unzip /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
+RUN unzip -o /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
 RUN chown odoo /usr/lib/python2.7/dist-packages/odoo/addons/
 RUN rm /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
 
