@@ -40,17 +40,9 @@ RUN chown odoo /etc/odoo/odoo.conf
 RUN chmod +x /entrypoint.sh
 RUN chmod g=u /etc/passwd
 
-COPY ./asset /etc/odoo/asset/
-RUN chown odoo /etc/odoo/asset/
+COPY ./asset /usr/lib/python2.7/dist-packages/odoo/addons/asset/
+RUN chown odoo /usr/lib/python2.7/dist-packages/odoo/addons/asset/
 
-ADD https://github.com/codup/odoo-eam/archive/10.0.zip /opt/odoo/codup.zip
-RUN unzip /opt/odoo/codup.zip
-RUN chown odoo /opt/odoo/
-
-ADD https://github.com/codup/odoo-eam/archive/10.0.zip /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
-RUN unzip -o /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
-RUN chown odoo /usr/lib/python2.7/dist-packages/odoo/addons/
-RUN rm /usr/lib/python2.7/dist-packages/odoo/addons/codup.zip
 
 # Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
 RUN mkdir -p /mnt/extra-addons \
